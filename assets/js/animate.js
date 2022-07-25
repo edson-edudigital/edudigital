@@ -18,6 +18,8 @@ export function custonAnime(params){
 export const anime_ = anime;
 
 
+
+
 export function animeNumber(element,val){
 
     anime({

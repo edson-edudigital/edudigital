@@ -1,0 +1,47 @@
+.btn{
+
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: all, 150ms ease;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+.btn-primary{
+    background: var(--color-vermelho);
+    color: #fff;
+
+    &:hover{
+        box-shadow: 2px 1px 3px 0px var(--color-vermelho-dark);
+        background: var(--color-vermelho-dark);
+    }
+}
+
+.btn-gray{
+    background: var(--color-cinza);
+    margin: auto;
+
+    margin-top: 20px;
+    
+    &:hover{
+        background: rgb(124, 124, 124);
+        box-shadow: 2px 3px 3px 0 rgb(124, 124, 124);
+    }
+
+}
+
+
+.btn-green{
+    background: var(--color-verde);
+    margin: auto;
+
+    margin-top: 20px;
+    
+    &:hover{
+        background: #00554b;
+        box-shadow: 2px 3px 3px 0 #00554b;
+    }
+}

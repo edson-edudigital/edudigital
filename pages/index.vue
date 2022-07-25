@@ -18,8 +18,8 @@
         <img ref="cartoom_" width="400" :src="require('~/assets/img/cartoon.png')" alt="">
       </template>
     </banner>
-    <Section>
-      <Counter title="Number" :val="300"/>
+    <Section :id="'main-section'">
+      
     </Section>
     <Contactform />
   </div>
@@ -33,10 +33,10 @@ import banner from '~/components/banner.vue'
 import Section from '~/components/sections/section.vue';
 import Contactform from '~/components/contactform.vue';
 import Counter from '../components/counter.vue';
-import Intersect from 'vue-intersect';
+
 
 export default Vue.extend({
-  components: { banner, Section, Contactform, Counter, Intersect },
+  components: { banner, Section, Contactform, Counter },
   mounted(){
 
     

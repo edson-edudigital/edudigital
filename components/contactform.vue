@@ -1,22 +1,25 @@
 <template>
-  <Section class="" :background="'var(--color-verde)'">
+  <Section :id="'section-contactform'" class="" :background="'var(--color-verde)'">
 
-    <div class="form-contact">
-        <h1>Contacte-nos</h1>
+    <intersect @enter.once="animeInputs">
 
-        <div class="form-content">
-            <input placeholder="Nome*" type="text" class="form-control">
-            <input placeholder="Email*" type="text" class="form-control">
-            <input placeholder="Telemóvel*" type="text" class="form-control">
-            <input placeholder="Empresa" type="text" class="form-control">
-            <input placeholder="Cargo" type="text" class="form-control">
-            <input placeholder="Assunto" type="text" class="form-control">
-            <textarea placeholder="Mensagem" class="form-control text-area" name="" id="" cols="30" rows="10"></textarea>
+        <div id="form-contact" class="form-contact">
+            <h1>Contacte-nos</h1>
 
-            <button type="button" class="btn">Enviar</button>
+            <div id="form-content" class="form-content">
+                <input placeholder="Nome*" type="text" class="form-control">
+                <input placeholder="Email*" type="text" class="form-control">
+                <input placeholder="Telemóvel*" type="text" class="form-control">
+                <input placeholder="Empresa" type="text" class="form-control">
+                <input placeholder="Cargo" type="text" class="form-control">
+                <input placeholder="Assunto" type="text" class="form-control">
+                <textarea placeholder="Mensagem" class="form-control text-area" name="" id="" cols="30" rows="10"></textarea>
+
+                <button type="button" class="btn btn-gray">Enviar</button>
+            </div>
+
         </div>
-
-    </div>
+    </intersect>
 
 
   </Section>
@@ -24,8 +27,36 @@
 
 <script>
 import Section from './sections/section.vue';
+import {anime_} from "~/assets/js/animate";
+import Intersect from "~/assets/js/vue-intersect";
 export default {
-    components: { Section }
+    components: { Section, Intersect },
+
+    mounted(){
+    },
+
+    methods:{
+        animeInputs(){
+            anime_.timeline({
+                targets:document.querySelector("#form-contact h1"),
+                translateX: [-50,0],
+                opacity:[0,1],
+                easing:"linear",
+                duration:400,
+                
+            })
+            .add({
+                targets:document.querySelector("#form-content")?.children,
+                translateX: [-50,0],
+                opacity:[0,1],
+                easing:"linear",
+                duration:300,
+                delay:function(el,i,l){
+                    return i*100
+                }
+            })
+        }
+    }
 }
 </script>
 
@@ -56,14 +87,7 @@ export default {
             width: 50%;
             max-width: 200px;
             padding: 15px 0;
-            background: var(--color-cinza);
-            margin: auto;
-
-            margin-top: 20px;
-            
-            &:hover{
-                background: rgb(124, 124, 124);
-            }
+           
         }
     }
     .form-control{
@@ -85,7 +109,7 @@ export default {
     }
 
 
-    @media screen and (max-width:900px ){
+    @media screen and (max-width:950px ){
         .form-content{
             width: 100%;
         }

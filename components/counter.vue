@@ -1,14 +1,21 @@
 <template>
   <div class="counter">
     <p class="counter-title">text</p>
-    <p class="counter-value" ref="counter"></p>
+        <intersect @enter.once="onChange">
+            <p class="counter-value" ref="counter"></p>
+        </intersect>
+
   </div>
 </template>
 
 <script>
-import {animeNumber} from "~/assets/js/animate"
 
+import {animeNumber} from "~/assets/js/animate";
+import Intersect from "~/assets/js/vue-intersect";
 export default {
+    components:{
+        Intersect
+    },  
     props:{
         title:{
             type:String,
@@ -21,7 +28,15 @@ export default {
     },
 
     mounted(){
-        animeNumber(this.$refs.counter,this.val)
+        this.onChange()
+    },
+
+    methods: {
+        onChange() {
+        
+            animeNumber(this.$refs.counter,this.val)
+            
+        }
     },
 
 

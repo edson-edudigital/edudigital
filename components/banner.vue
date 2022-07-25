@@ -1,15 +1,26 @@
 <template>
-  <section :style="section_style">
+  <section id="section-banner" :style="section_style">
     <!-- <div class="bradcrumbs">
         <Breadcrumbs />
     </div> -->
     <div :style="style" class="container">
 
         <div>
-            <slot name="left"></slot>
+            <intersect @enter.once="enter">
+
+                <div id="banner-content">
+                    <h1>{{title}}</h1>
+                    <p>
+                        <slot name="text"></slot>
+                    </p>
+
+                    <a v-if="buttonActionText" :href="buttonActionHref" class="btn btn-primary">{{buttonActionText}}</a>
+                </div>
+     
+            </intersect>
         </div>
-        <div>
-            <slot name="right"></slot>
+        <div class="banner-cartoon">
+            <slot name="cartoon"></slot>
         </div>
     </div>
   </section>
@@ -17,10 +28,23 @@
 
 <script>
 import Breadcrumbs from './breadcrumbs.vue';
-import bg from "~/assets/img/banner-bg.jpg";
+import Intersect from "~/assets/js/vue-intersect";
+
+import {anime_} from "~/assets/js/animate";
 export default {
-    components: { Breadcrumbs },
+    components: { Breadcrumbs, Intersect },
     props:{
+        buttonActionText:{
+            type:String
+        },
+        buttonActionHref:{
+            type:String,
+            default:"/"
+        },
+        title:{
+            type:String,
+            required:true
+        },  
         columnsTemplate:{
             type:String,
             default:"1fr 1fr"
@@ -36,6 +60,21 @@ export default {
             
         }
     },
+
+    methods:{
+        enter(){
+            anime_({
+                targets:document.querySelector("#banner-content")?.children,
+                translateX: [-50,0],
+                opacity:[0,1],
+                easing:"linear",
+                duration:800,
+                delay:function(el,i,l){
+                    return i*400
+                }
+                })
+            }
+        },
 
     computed:{
         style(){
@@ -90,14 +129,35 @@ export default {
             justify-content: space-evenly;
             align-items: flex-start;
 
-            *{
-                margin-bottom: 20px;
-            }
-
             h1{
                 font-size: 3rem;
                 line-height: 50px;
             }
         }
+    }
+
+    #banner-content{
+        *{
+            margin-bottom: 30px;
+        }
+    }
+
+
+    @media screen and (max-width:950px ){
+
+        .container{
+            .banner-cartoon{
+                display: none;
+            }
+
+            #banner-content{
+                width: 100%;
+                flex: none;
+            }
+
+
+            grid-template-columns: 1fr!important;
+        }
+
     }
 </style>

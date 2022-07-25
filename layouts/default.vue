@@ -22,11 +22,9 @@ export default {
 
   mounted(){
 
-    let that = this;
     window.addEventListener("scroll",(e)=>{
 
       let scrollTop = window.scrollY;
-      console.log(scrollTop);
       if(scrollTop > 10){
         this.onTop = false
       }else{

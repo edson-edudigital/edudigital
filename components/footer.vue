@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div id="footer-top">
-            <div>
+            <div class="fast-access-menu">
                 <ul class="menu-footer">
                     <li><a href="#" class="link">O que fazemos</a></li>
                     <li><a href="#" class="link">Plataformas eLearning</a></li>
@@ -11,7 +11,7 @@
                     <li><a href="#" class="link">Softwares Académicos</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="fast-access-menu">
                 <ul class="menu-footer">
                     <li><a href="#" class="link">Sobre nós</a></li>
                     <li><a href="#" class="link">Contactos</a></li>
@@ -19,7 +19,7 @@
                     <li><a href="#" class="link">Recrutamento</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="fast-access-menu">
                 <ul class="menu-footer">
                     <li><a href="#" class="link">Plataformas</a></li>
                     <li><a href="#" class="link">Open-source eLearning</a></li>
@@ -30,7 +30,7 @@
 
                 </ul>
             </div>
-            <div>
+            <div class="fast-access-menu">
                 <ul class="menu-footer">
                     <li><a href="#" class="link">Contacte-nos</a></li>
                     <li><a href="#" class="link">Portugal - Oeiras</a></li>
@@ -130,6 +130,13 @@ export default {
             &:hover{
                 transform:scale(1.1);
             }
+        }
+    }
+
+
+    @media screen and (max-width:950px) {
+        .fast-access-menu{
+            display: none;
         }
     }
 

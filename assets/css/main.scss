@@ -1,26 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-:root{
-    --color-black:rgb(27, 27, 27);
+@import "./vars.scss";
 
-    --color-verde:#008072;
-    --color-verde-light:#029b89;
-
-    --color-vermelho:#d35640;
-    --color-vermelho-dark:#b44d3a;
-
-    --color-azul:#80cbc4;
-    --color-light:#eeeeee;
-
-    --color-cinza:#616161;
-    --color-cinza-light:#8d8d8d8f;
+@import "./buttons.scss";
 
 
-    --color-verde-logo:#88bd24;
-
-
-    --shadow-md: -7px -8px 12px 4px #000;
-}
 
 html{
     scroll-behavior: smooth;
@@ -35,28 +19,6 @@ html{
     list-style: none;
 }
 
-.btn{
-
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: all, 150ms ease;
-
-    &:hover{
-        box-shadow: 1px 1px 5px var(--color-vermelho-dark);
-        cursor: pointer;
-    }
-}
-
-
-.btn-primary{
-    background: var(--color-vermelho);
-    color: #fff;
-
-    &:hover{
-
-        background: var(--color-vermelho-dark);
-    }
-}
 
 
 .link{

@@ -17,6 +17,7 @@ html{
     font-family: "PT Sans", sans-serif;
     color: inherit;
     list-style: none;
+    box-sizing: border-box;
 }
 
 
@@ -98,6 +99,8 @@ html{
 
     right: 40px;
     bottom: 40px;
+
+    border-radius: 50%;
 
     border: 1px solid var(--color-vermelho);
 

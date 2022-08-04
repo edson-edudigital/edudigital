@@ -146,8 +146,6 @@ export default {
     @media screen and (max-width:950px ){
 
         .container{
-
-            margin: 0;
             .banner-cartoon{
                 display: none;
             }

@@ -15,7 +15,7 @@
       </template>
 
       <template class="cartoon" v-slot:cartoon>
-        <!-- <img ref="cartoom_" width="400" :src="require('~/assets/img/cartoon.png')" alt=""> -->
+        <img ref="cartoom_" width="400" :src="require('~/assets/img/cartoon.png')" alt="">
       </template>
     </banner>
     <Section :id="'main-section'">
